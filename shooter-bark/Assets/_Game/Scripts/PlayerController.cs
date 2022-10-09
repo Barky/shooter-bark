@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private DynamicJoystick joystick;
     private float angle;
 
-    private void Update()
+    private void FixedUpdate()
     {
         Movement();
     }
