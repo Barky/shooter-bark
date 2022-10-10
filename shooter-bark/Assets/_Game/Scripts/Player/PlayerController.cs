@@ -7,9 +7,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private DynamicJoystick joystick;
+
+    private Animator anim;
     private float angle;
 
     private bool canMove;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -32,9 +39,15 @@ public class PlayerController : MonoBehaviour
     {
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
+            anim.SetBool("running", true);
              angle = Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg;
              transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
              transform.position += (transform.forward * (5f * Time.deltaTime));
+        }
+        else
+        {
+            anim.SetBool("running", false);
+
         }
     }
 

@@ -9,11 +9,12 @@ namespace _Game.Scripts.Managers
         private static GameManager _instance;
         public static GameManager instance => _instance;
 
+        [SerializeField] private PanelsController panelscontroller;
+
         public event Action <GameState> OnGameStateChanged;
 
         public void SetGameState(GameState state)
-        {
-            Debug.Log("state degisti: "+ state);
+        { Debug.Log(state +" oldu stateimiz");
             OnGameStateChanged?.Invoke(state);
         }
 
@@ -32,21 +33,31 @@ namespace _Game.Scripts.Managers
         private void Start()
         {
             SetGameState(GameState.TapToStart);
-            StartCoroutine(changeit());
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
-        IEnumerator changeit()
-        {
-            yield return new WaitForSeconds(2f);
-            SetGameState(GameState.Started);
-        }
 
         void GameStateChanged(GameState state)
         {
-            
+            switch (state)
+            {
+                case(GameState.TapToStart):
+                    GameOpened();
+                    break;
+                case(GameState.Started):
+                    break;
+                case(GameState.Finished):
+                    break;
+                case(GameState.Win):
+                    break;
+                case(GameState.Fail):
+                    break;
+            }
         }
 
+        void GameOpened()
+        {
+            
+        }
         void GetSingleton()
         {
             if (_instance == null) _instance = this;
