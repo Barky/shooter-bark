@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3cdfa3e6-d00b-4995-9b9d-24ea73661fdf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.shooter-bark/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shooter-bark/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hypercasual Action Props Pack/Materials/Mat_ActionPropsPack_stylizedToonyShader.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Hypercasual Action Props Pack/Materials/Mat_ActionPropsPack_stylizedToonyShader.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Animator Controllers/Player/PlayerAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Animator Controllers/Player/PlayerAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/Level 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +75,7 @@
       <workItem from="1665286180371" duration="12000" />
       <workItem from="1665286238039" duration="47000" />
       <workItem from="1665286307702" duration="7403000" />
-      <workItem from="1665430295413" duration="3865000" />
+      <workItem from="1665430295413" duration="8600000" />
     </task>
     <servers />
   </component>
