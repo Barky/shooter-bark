@@ -11,13 +11,20 @@ namespace _Game.Scripts.Managers
 
         [SerializeField] private PanelsController panelscontroller;
 
+        public LevelSettingsSO leveldata;
+
         public event Action <GameState> OnGameStateChanged;
 
         public void SetGameState(GameState state)
-        { Debug.Log(state +" oldu stateimiz");
+        { 
+            Debug.Log(state +" oldu stateimiz");
             OnGameStateChanged?.Invoke(state);
         }
 
+        
+
+        
+        
         private void Awake()
         {
             GetSingleton();
@@ -35,6 +42,16 @@ namespace _Game.Scripts.Managers
             SetGameState(GameState.TapToStart);
         }
 
+        IEnumerator spawningg()
+        {
+            while(true)
+            {
+                EnemySpawner.instance.executeSpawnWave();
+                yield return new WaitForSeconds(2f);
+                yield return null;
+            }
+            
+        }
 
         void GameStateChanged(GameState state)
         {
@@ -44,6 +61,7 @@ namespace _Game.Scripts.Managers
                     GameOpened();
                     break;
                 case(GameState.Started):
+                    StartCoroutine(spawningg());
                     break;
                 case(GameState.Finished):
                     break;
