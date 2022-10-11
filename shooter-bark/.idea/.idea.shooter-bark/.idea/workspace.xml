@@ -4,7 +4,6 @@
     <list default="true" id="3cdfa3e6-d00b-4995-9b9d-24ea73661fdf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.shooter-bark/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shooter-bark/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/Level 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Managers/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Enemy/Enemy AI/IState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Player/PlayerAnimationHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Settings/LevelSettingsSO.cs" root0="FORCE_HIGHLIGHTING" />
@@ -76,7 +76,7 @@
       <workItem from="1665286180371" duration="12000" />
       <workItem from="1665286238039" duration="47000" />
       <workItem from="1665286307702" duration="7403000" />
-      <workItem from="1665430295413" duration="13338000" />
+      <workItem from="1665430295413" duration="14865000" />
     </task>
     <servers />
   </component>
