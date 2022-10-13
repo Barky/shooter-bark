@@ -7,9 +7,8 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
 
-    [SerializeField] private BulletController bulletprefab;
-    public Transform shootPos;
-    public Transform destpos;
+    private WeaponType currentweapon;
+    private BulletType currentbullet;
     private void Start()
     {
         GameManager.instance.OnGameStateChanged += OnGameStateChanged;
@@ -20,19 +19,7 @@ public class PlayerShoot : MonoBehaviour
         GameManager.instance.OnGameStateChanged -= OnGameStateChanged;
     }
 
-    public IEnumerator Shoot()
-    {
-        while(true)
-        {
-            var currentbullet = Instantiate(bulletprefab);
-            currentbullet.dest_ = destpos.position;
-            currentbullet.transform.position = shootPos.position;
-            yield return new WaitForSeconds(0.4f);
-            yield return null;
 
-        }
-
-    }
 
     private void OnGameStateChanged(GameState state)
     {
@@ -42,7 +29,7 @@ public class PlayerShoot : MonoBehaviour
                 //do nothin
                 break;
             case(GameState.Started):
-                StartCoroutine(Shoot());
+                
                 break;
         }
         
