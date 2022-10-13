@@ -16,7 +16,9 @@ public class LevelSettingsSO : ScriptableObject
     public class waveSettings
     {
         public EnemyType firstType = EnemyType.Plumber;
-        public int count;
+        public int firstcount;
+        public EnemyType secondType = EnemyType.Clown;
+        public int secondcount;
     }
     
 }

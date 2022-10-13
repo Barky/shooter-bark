@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1774f943d1d234f6ea75856d9a2ee792, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  enemyWaveCount: 3
+  enemyWaveCount: 1
   WaveSettingsList:
   - firstType: 0
-    count: 1
-  - firstType: 0
-    count: 1
-  - firstType: 0
-    count: 1
+    firstcount: 2
+    secondType: 1
+    secondcount: 3
   spawnPoints:
   - {fileID: 4670366348517124149, guid: b849d52942f9341b69ee0d421a7db783, type: 3}
   - {fileID: 4670366348517124149, guid: b849d52942f9341b69ee0d421a7db783, type: 3}

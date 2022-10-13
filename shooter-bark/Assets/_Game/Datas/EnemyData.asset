@@ -15,3 +15,5 @@ MonoBehaviour:
   EnemyCollections:
   - type: 0
     enemy: {fileID: 2818123000719481562, guid: 56991264dede04ec6861d33f2d59d856, type: 3}
+  - type: 1
+    enemy: {fileID: 8589469581889013213, guid: 4555522d69e4c4a77a82341dea15480d, type: 3}

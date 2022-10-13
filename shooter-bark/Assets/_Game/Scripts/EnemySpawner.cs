@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Game.Scripts.Managers;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -56,13 +57,19 @@ public class EnemySpawner : MonoBehaviour
 
         currentSpawnPoint = leveldata.spawnPoints[currentno - 1].transform.position;
 
-        for (int i = 0; i < leveldata.WaveSettingsList[0].count; i++)
+        for (int i = 0; i < leveldata.WaveSettingsList[currentno - 1].firstcount; i++)
         {
-            var enemy = Instantiate(enemyData.getEnemy(leveldata.WaveSettingsList[0].firstType), currentSpawnPoint,
+            var enemy = Instantiate(enemyData.getEnemy(leveldata.WaveSettingsList[0].firstType), currentSpawnPoint + new Vector3(Random.Range(-1,1), 0f, Random.Range(-1,1)),
                 Quaternion.identity);
             
         }
         
+        for (int i = 0; i < leveldata.WaveSettingsList[currentno - 1].secondcount; i++)
+        {
+            var enemy = Instantiate(enemyData.getEnemy(leveldata.WaveSettingsList[0].secondType), currentSpawnPoint + new Vector3(Random.Range(-2,2), 0f, Random.Range(-2,2)),
+                Quaternion.identity);
+            
+        }        
         if(isFinal) Debug.Log("bu son wave bilider.");
     }
     
@@ -75,5 +82,6 @@ public class EnemySpawner : MonoBehaviour
 
 public enum EnemyType
 {
-    Plumber = 0
+    Plumber = 0,
+    Clown = 1
 }
