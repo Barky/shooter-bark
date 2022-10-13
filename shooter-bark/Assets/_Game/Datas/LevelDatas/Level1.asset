@@ -13,3 +13,14 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   enemyWaveCount: 3
+  WaveSettingsList:
+  - firstType: 0
+    count: 1
+  - firstType: 0
+    count: 1
+  - firstType: 0
+    count: 1
+  spawnPoints:
+  - {fileID: 4670366348517124149, guid: b849d52942f9341b69ee0d421a7db783, type: 3}
+  - {fileID: 4670366348517124149, guid: b849d52942f9341b69ee0d421a7db783, type: 3}
+  - {fileID: 4670366348517124149, guid: b849d52942f9341b69ee0d421a7db783, type: 3}

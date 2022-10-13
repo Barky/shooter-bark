@@ -11,6 +11,8 @@ namespace _Game.Scripts.Managers
 
         [SerializeField] private PanelsController panelscontroller;
 
+        public EnemiesData enemiesdata;
+
         public LevelSettingsSO leveldata;
 
         public event Action <GameState> OnGameStateChanged;
