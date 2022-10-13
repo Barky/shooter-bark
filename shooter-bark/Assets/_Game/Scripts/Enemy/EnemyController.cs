@@ -6,6 +6,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Health _health;
+    
+
+    public List<Transform> targets;
 
     private void Awake()
     {
