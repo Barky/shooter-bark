@@ -7,10 +7,18 @@ using DG.Tweening;
 public class Bullet : MonoBehaviour
 {
     public GameObject part;
+    private Health enemyHealth;
+    private int damage = 5;
 
     public void GetFired(bool isFlame,  int targetno, EnemyController enemy)
     {
+        enemyHealth = enemy._health;
         if(isFlame) part.SetActive(true);
-        transform.DOMove(enemy.targets[targetno].position, 2f);
+
+        if (enemyHealth.currentHealth - damage <= 0)
+        {
+            enemy.isDamageable = false;
+        }
+        transform.DOMove(enemy.hitPoint.transform.position, 1.5f).OnComplete(() => enemyHealth.ChangeHealth(damage)); 
     }
 }

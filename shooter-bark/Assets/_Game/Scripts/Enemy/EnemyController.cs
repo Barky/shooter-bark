@@ -6,9 +6,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Health _health;
-    
-
-    public List<Transform> targets;
+    public Transform hitPoint;
+    public bool isDamageable;
 
     private void Awake()
     {
@@ -18,6 +17,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         _health.onDeath += onDeath;
+        isDamageable = true;
     }
 
 

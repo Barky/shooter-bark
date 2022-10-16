@@ -39,12 +39,18 @@ public class PlayerShoot : MonoBehaviour
 
     private void Update()
     {
+        
         if (currentTarget == null) return;
-        if (canShoot)
-        {
+        if (!canShoot) return;
+        
+            if (!currentTarget.isDamageable)
+            {
+                targetTrigger.RemoveEnemy(currentTarget);
+                return;
+            }
             ShootSettings(currentTarget, WeaponType.Default, BulletType.Default);
             StartCoroutine(shootCounter());
-        }
+        
         
     }
 
@@ -56,8 +62,7 @@ public class PlayerShoot : MonoBehaviour
     }
     private void ShootSettings(EnemyController target, WeaponType weaponType, BulletType bulletType)
     {
-        /* var a = Instantiate(bullet, firePoint.position, Quaternion.identity);
-        a.transform.DOMoveZ(5f, 1f); */
+       
         if (target == null) return;
         transform.LookAt(target.transform);
 

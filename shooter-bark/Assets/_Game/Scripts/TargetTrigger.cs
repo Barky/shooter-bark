@@ -40,6 +40,11 @@ public class TargetTrigger : MonoBehaviour
 
     }
 
+    public void RemoveEnemy(EnemyController enemy)
+    {
+        currentEnemies.Remove(enemy);
+        enemyPicker();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -47,7 +52,6 @@ public class TargetTrigger : MonoBehaviour
         
         currentEnemies.Add(other.gameObject.GetComponent<EnemyController>());
         enemyPicker();
-        //enemyInSight?.Invoke(other.gameObject.GetComponent<EnemyController>());
     }
 
     private void OnTriggerExit(Collider other)
