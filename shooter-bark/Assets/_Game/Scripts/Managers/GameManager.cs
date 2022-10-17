@@ -17,6 +17,8 @@ namespace _Game.Scripts.Managers
 
         public event Action <GameState> OnGameStateChanged;
 
+        public Transform player => GameObject.FindGameObjectWithTag("Player").transform;
+
         public void SetGameState(GameState state)
         { 
             Debug.Log(state +" oldu stateimiz");

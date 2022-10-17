@@ -1053,6 +1053,7 @@ GameObject:
   - component: {fileID: 2818123000719481561}
   - component: {fileID: 2818123000719481562}
   - component: {fileID: 208433866396644765}
+  - component: {fileID: 903574205603339555}
   m_Layer: 0
   m_Name: enemy plumber
   m_TagString: Enemy
@@ -1177,6 +1178,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   defaultHealth: 15
+--- !u!114 &903574205603339555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2866161666183873865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5228f89e5c8471994a5ea66f02e043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2920666546921165288
 GameObject:
   m_ObjectHideFlags: 0

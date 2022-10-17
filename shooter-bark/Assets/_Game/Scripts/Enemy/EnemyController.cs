@@ -27,6 +27,8 @@ public class EnemyController : MonoBehaviour
         _health.onDeath -= onDeath;
     }
 
+    
+
     private void onDeath()
     {
 spawner.RemoveEnemy(this);
