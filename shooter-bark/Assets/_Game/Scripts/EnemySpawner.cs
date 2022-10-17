@@ -86,6 +86,11 @@ public class EnemySpawner : MonoBehaviour
     public void RemoveEnemy(EnemyController enemy)
     {
         waveEnemies.Remove(enemy);
+
+        if (waveEnemies.Count == 0)
+        {
+            executeSpawnWave();
+        }
     }
     
     void GetSingleton()

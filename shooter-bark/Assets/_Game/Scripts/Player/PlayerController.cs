@@ -24,12 +24,15 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         GameManager.instance.OnGameStateChanged += OnGameStateChanged;
+        playerHealth.Change += Damaged;
         playerHealth.onDeath += onDeath;
     }
 
     private void OnDestroy()
     {
         GameManager.instance.OnGameStateChanged -= OnGameStateChanged;
+        playerHealth.Change -= Damaged;
+
         playerHealth.onDeath -= onDeath;
 
     }
@@ -57,6 +60,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Damaged(float amount)
+    {
+        
+    }
     void onDeath()
     {
         

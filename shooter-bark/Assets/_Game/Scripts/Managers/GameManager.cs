@@ -46,16 +46,7 @@ namespace _Game.Scripts.Managers
             SetGameState(GameState.TapToStart);
         }
 
-        IEnumerator spawningg()
-        {
-            while(true)
-            {
-                EnemySpawner.instance.executeSpawnWave();
-                yield return new WaitForSeconds(2f);
-                yield return null;
-            }
-            
-        }
+       
 
         void GameStateChanged(GameState state)
         {
@@ -65,7 +56,7 @@ namespace _Game.Scripts.Managers
                     GameOpened();
                     break;
                 case(GameState.Started):
-                    StartCoroutine(spawningg());
+                    GameStarted();
                     break;
                 case(GameState.Finished):
                     break;
@@ -79,6 +70,11 @@ namespace _Game.Scripts.Managers
         void GameOpened()
         {
             
+        }
+
+        void GameStarted()
+        {
+            EnemySpawner.instance.executeSpawnWave();
         }
         void GetSingleton()
         {
