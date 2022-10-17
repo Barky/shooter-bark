@@ -9,6 +9,5 @@ namespace _Game.Scripts.Player
         private Animator _animator => GetComponent<Animator>();
         
         
-        
     }
 }

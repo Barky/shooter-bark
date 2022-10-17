@@ -15,6 +15,7 @@ public class PlayerShoot : MonoBehaviour
    [SerializeField]  private TargetTrigger targetTrigger;
    private EnemyController currentTarget = null;
 
+   private Animator anim => GetComponent<Animator>();
    [SerializeField] private Transform firePoint;
    public Transform trial;
 
@@ -54,6 +55,13 @@ public class PlayerShoot : MonoBehaviour
         
     }
 
+    IEnumerator ShootAnim()
+    {
+        anim.SetBool("shooting",true );
+        yield return new WaitForSeconds(1f);
+        anim.SetBool("shooting",false );
+
+    }
     IEnumerator shootCounter()
     {
         canShoot = false;
@@ -65,6 +73,7 @@ public class PlayerShoot : MonoBehaviour
        
         if (target == null) return;
         transform.LookAt(target.transform);
+        StartCoroutine(ShootAnim());
 
         float fireRate;
         bool isFlame = false, isSpread = false;

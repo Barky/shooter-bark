@@ -1086,7 +1086,7 @@ Animator:
   m_GameObject: {fileID: 2866161666183873865}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a4a3ba617ed9c5946bb76844ec1ef299, type: 3}
-  m_Controller: {fileID: 9100000, guid: 447696ebf897246df998bd743c9d7c0e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6c6b0d455e6954c1db8249f81326ff11, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1161,10 +1161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 0}
   hitPoint: {fileID: 279626054695345956}
-  targets:
-  - {fileID: 279626054695345956}
-  - {fileID: 0}
-  - {fileID: 0}
+  isDamageable: 0
+  spawner: {fileID: 0}
 --- !u!114 &208433866396644765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1178,7 +1176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  defaultHealth: 0
+  defaultHealth: 15
 --- !u!1 &2920666546921165288
 GameObject:
   m_ObjectHideFlags: 0

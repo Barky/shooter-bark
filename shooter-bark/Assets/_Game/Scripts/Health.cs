@@ -31,10 +31,11 @@ public class Health : MonoBehaviour
 
     public void ChangeHealth(float amount)
     {
-        if (currentstate != GameState.Started || currentHealth <= 0) return;
+        
+       // if (currentstate != GameState.Started || currentHealth <= 0) return;
 
         currentHealth = Mathf.Clamp((currentHealth - amount), 0, defaultHealth);
-
+        Debug.Log(gameObject.name + " hasar aldım= "+ currentHealth);
         Change?.Invoke(amount);
         
         if(currentHealth == 0)

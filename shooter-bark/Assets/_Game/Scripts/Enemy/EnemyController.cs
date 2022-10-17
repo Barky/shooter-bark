@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
     public Health _health;
     public Transform hitPoint;
     public bool isDamageable;
+    public EnemySpawner spawner;
+    private Animator anim => GetComponent<Animator>();
 
     private void Awake()
     {
@@ -20,9 +22,17 @@ public class EnemyController : MonoBehaviour
         isDamageable = true;
     }
 
+    private void OnDisable()
+    {
+        _health.onDeath -= onDeath;
+    }
 
     private void onDeath()
     {
-        
+spawner.RemoveEnemy(this);
+anim.SetBool("died", true);
+Destroy(gameObject, 1f);
+//disable
+
     }
 }

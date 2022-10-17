@@ -84082,10 +84082,6 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 322243520}
-    - target: {fileID: 4024741260539270261, guid: 9e8af580e2d424ed8930c2834617d4f6, type: 3}
-      propertyPath: trial
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7384605842191358881, guid: 9e8af580e2d424ed8930c2834617d4f6, type: 3}
       propertyPath: m_RootOrder
       value: 6

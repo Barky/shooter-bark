@@ -17,6 +17,10 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 currentSpawnPoint;
 
+    private List<EnemyController> waveEnemies = new List<EnemyController>();
+    
+    
+
     private bool canSpawn = true;
 
     private void Awake()
@@ -30,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public event Action<int, bool> waveSpawn;
+    public event Action FinalWave;
     
     public void executeSpawnWave()
     {
@@ -53,7 +58,6 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnWave(int currentno, bool isFinal)
     {
 
-        Debug.Log(currentno+ " numaralı wave geldi. " + isFinal + " kaldı.");
 
         currentSpawnPoint = leveldata.spawnPoints[currentno - 1].transform.position;
 
@@ -61,6 +65,9 @@ public class EnemySpawner : MonoBehaviour
         {
             var enemy = Instantiate(enemyData.getEnemy(leveldata.WaveSettingsList[0].firstType), currentSpawnPoint + new Vector3(Random.Range(-1,1), 0f, Random.Range(-1,1)),
                 Quaternion.identity);
+            EnemyController enemycont = enemy.GetComponent<EnemyController>();
+            enemycont.spawner = this;
+            waveEnemies.Add(enemycont);
             
         }
         
@@ -68,9 +75,17 @@ public class EnemySpawner : MonoBehaviour
         {
             var enemy = Instantiate(enemyData.getEnemy(leveldata.WaveSettingsList[0].secondType), currentSpawnPoint + new Vector3(Random.Range(-2,2), 0f, Random.Range(-2,2)),
                 Quaternion.identity);
+            EnemyController enemycont = enemy.GetComponent<EnemyController>();
+            enemycont.spawner = this;
+            waveEnemies.Add(enemycont);
             
         }        
-        if(isFinal) Debug.Log("bu son wave bilider.");
+        if(isFinal) FinalWave?.Invoke();
+    }
+
+    public void RemoveEnemy(EnemyController enemy)
+    {
+        waveEnemies.Remove(enemy);
     }
     
     void GetSingleton()

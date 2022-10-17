@@ -10,6 +10,11 @@ public class Bullet : MonoBehaviour
     private Health enemyHealth;
     private int damage = 5;
 
+    private void Start()
+    {
+        Destroy(gameObject , 2);
+    }
+
     public void GetFired(bool isFlame,  int targetno, EnemyController enemy)
     {
         enemyHealth = enemy._health;
@@ -19,6 +24,6 @@ public class Bullet : MonoBehaviour
         {
             enemy.isDamageable = false;
         }
-        transform.DOMove(enemy.hitPoint.transform.position, 1.5f).OnComplete(() => enemyHealth.ChangeHealth(damage)); 
+        transform.DOMove(enemy.hitPoint.transform.position, 1.5f).OnComplete(() => enemyHealth.ChangeHealth(damage) ); 
     }
 }

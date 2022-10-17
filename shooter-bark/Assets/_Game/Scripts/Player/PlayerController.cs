@@ -13,19 +13,25 @@ public class PlayerController : MonoBehaviour
 
     private bool canMove;
 
+    private Health playerHealth;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        playerHealth = GetComponent<Health>();
     }
 
     private void Start()
     {
         GameManager.instance.OnGameStateChanged += OnGameStateChanged;
+        playerHealth.onDeath += onDeath;
     }
 
     private void OnDestroy()
     {
         GameManager.instance.OnGameStateChanged -= OnGameStateChanged;
+        playerHealth.onDeath -= onDeath;
+
     }
 
     private void FixedUpdate()
@@ -49,6 +55,11 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("running", false);
 
         }
+    }
+
+    void onDeath()
+    {
+        
     }
 
     private void OnGameStateChanged(GameState state)
