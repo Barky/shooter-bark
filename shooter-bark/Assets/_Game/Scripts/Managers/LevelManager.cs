@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name != "LoadingScene") return;
         StartCoroutine(LoadScene());
     }
 

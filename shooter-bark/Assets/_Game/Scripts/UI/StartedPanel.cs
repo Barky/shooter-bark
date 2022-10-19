@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class StartedPanel : PanelsMain
 {
-    public TextMeshProUGUI waveText;
+    public TextMeshProUGUI waveText, levelText, currencyText;
     public Button pauseButton;
 
     public override void onAwake()
@@ -25,6 +25,9 @@ public class StartedPanel : PanelsMain
     private void OnEnable()
     {
         EnemySpawner.instance.waveSpawn += waveSpawn;
+
+        levelText.text = GameManager.instance.currentlevel.ToString();
+        currencyText.text = GameManager.instance.currentcurrency.ToString();
     }
 
     private void OnDestroy()

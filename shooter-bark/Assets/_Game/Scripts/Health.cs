@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     private GameState currentstate;
     
     public float currentHealth;
-   [SerializeField] private float defaultHealth;
+   public float defaultHealth;
 
     private void Awake()
     {

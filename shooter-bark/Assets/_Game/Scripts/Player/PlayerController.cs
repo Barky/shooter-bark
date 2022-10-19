@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private float angle;
 
     private bool canMove;
+    
+   
 
     private Health playerHealth;
 
