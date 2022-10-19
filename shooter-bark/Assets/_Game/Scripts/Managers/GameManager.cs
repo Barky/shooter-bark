@@ -14,6 +14,8 @@ namespace _Game.Scripts.Managers
         public EnemiesData enemiesdata;
 
         public LevelSettingsSO leveldata;
+
+        public int currentlevel, currentcurrency;
         public event Action onPaused;
         public event Action onContinue;
         public event Action onRetry;
@@ -64,17 +66,37 @@ namespace _Game.Scripts.Managers
                     GameStarted();
                     break;
                 case(GameState.Finished):
+                    GameFinished();
                     break;
                 case(GameState.Win):
+                    GameWin();
                     break;
                 case(GameState.Fail):
+                    GameFail();
                     break;
             }
         }
 
+        private void GameFail()
+        {
+            LevelManager.instance.SetSaved(currentlevel, currentcurrency);
+        }
+
+        private void GameWin()
+        {
+            currentlevel++;
+            LevelManager.instance.SetSaved(currentlevel, currentcurrency);
+
+        }
+
+        private void GameFinished()
+        {
+        }
+
         void GameOpened()
         {
-            
+            currentlevel = LevelManager.instance.currentlevel;
+            currentcurrency = LevelManager.instance.currentcurrency;
         }
 
         void GameStarted()
@@ -103,20 +125,6 @@ namespace _Game.Scripts.Managers
 
         }
 
-        private void GetSaveData()
-        {
-            int currentlevel, currentcurreny;
-            if (PlayerPrefs.HasKey("level"))
-            {
-                currentlevel = PlayerPrefs.GetInt("level");
-            }
-            else
-            {
-                PlayerPrefs.SetInt("level", 1);
-                currentlevel = PlayerPrefs.GetInt("level");
-            }
-        }
-        
         void GetSingleton()
         {
             if (_instance == null) _instance = this;

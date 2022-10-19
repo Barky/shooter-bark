@@ -21,12 +21,23 @@ public class LevelManager : MonoBehaviour
     public int currentlevel;
     public int currentcurrency;
 
+    public int LoadCount = 4;
+
+    public event Action LoadNextLevel;
+    public event Action<int, int> SetSave; 
+
+    private void Awake()
+    {
+        GetSingleton();
+        SavedInit();
+    }
+
     private void Start()
     {
         StartCoroutine(LoadScene());
     }
 
-    void GetSaved()
+    private void SavedInit()
     {
         
         if (!PlayerPrefs.HasKey("level"))
@@ -43,9 +54,17 @@ public class LevelManager : MonoBehaviour
         currentcurrency = PlayerPrefs.GetInt("currency");
     }
 
+    public void SetSaved(int level, int currency)
+    {
+        currentlevel = level;
+        currentcurrency = currency;
+        PlayerPrefs.SetInt("level", currentlevel);
+        PlayerPrefs.SetInt("currency", currentcurrency);
+    }
     public IEnumerator LoadScene()
     {
-        yield return new WaitForSeconds(2f);
+        LoadNextLevel?.Invoke();
+        yield return new WaitForSeconds(LoadCount);
         if (EditorBuildSettings.scenes.Length -1 < currentlevel)
         {
             SceneManager.LoadScene("Level " + currentlevel);
