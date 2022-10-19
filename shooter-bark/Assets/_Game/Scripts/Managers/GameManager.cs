@@ -17,6 +17,8 @@ namespace _Game.Scripts.Managers
         public event Action onPaused;
         public event Action onContinue;
         public event Action onRetry;
+
+        public event Action<int, int> changeSaveData;
         public event Action <GameState> OnGameStateChanged;
 
 
@@ -100,6 +102,21 @@ namespace _Game.Scripts.Managers
             EnemySpawner.instance.executeSpawnWave();
 
         }
+
+        private void GetSaveData()
+        {
+            int currentlevel, currentcurreny;
+            if (PlayerPrefs.HasKey("level"))
+            {
+                currentlevel = PlayerPrefs.GetInt("level");
+            }
+            else
+            {
+                PlayerPrefs.SetInt("level", 1);
+                currentlevel = PlayerPrefs.GetInt("level");
+            }
+        }
+        
         void GetSingleton()
         {
             if (_instance == null) _instance = this;
