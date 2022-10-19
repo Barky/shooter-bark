@@ -1,22 +1,40 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Game.Scripts.Managers;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class StartedPanel : PanelsMain
 {
     public TextMeshProUGUI waveText;
+    public Button pauseButton;
 
-    private void Start()
+    public override void onAwake()
+    {
+        base.onAwake();
+        
+        pauseButton.onClick.AddListener(clickedPause);
+    }
+    void clickedPause()
+    {
+        GameManager.instance.PauseGame();
+    }
+    private void OnEnable()
     {
         EnemySpawner.instance.waveSpawn += waveSpawn;
     }
 
+    private void OnDestroy()
+    {
+        EnemySpawner.instance.waveSpawn -= waveSpawn;
+    }
+
     void waveSpawn(int no, bool isFinal)
     {
-        Debug.Log("evente girdi, " +no +" "+isFinal);
+        Debug.LogError("evente girdi, " +no +" "+isFinal);
         waveText.gameObject.SetActive(true);
         if (isFinal)
         {
@@ -41,8 +59,10 @@ else
                     break;
             }
         }
-waveText.transform.DOShakeScale(2f).OnComplete(() =>waveText.gameObject.SetActive(false));
+waveText.transform.DOShakeScale(4f, 0.4f).OnComplete(() =>waveText.gameObject.SetActive(false));
 
 
     }
+
+    
 }

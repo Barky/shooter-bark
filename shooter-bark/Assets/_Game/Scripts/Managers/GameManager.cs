@@ -14,8 +14,11 @@ namespace _Game.Scripts.Managers
         public EnemiesData enemiesdata;
 
         public LevelSettingsSO leveldata;
-
+        public event Action onPaused;
+        public event Action onContinue;
+        public event Action onRetry;
         public event Action <GameState> OnGameStateChanged;
+
 
         public Transform player => GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -74,7 +77,28 @@ namespace _Game.Scripts.Managers
 
         void GameStarted()
         {
+            StartCoroutine(spawnWave());
+
+        }
+        
+        public void PauseGame()
+        {
+            Time.timeScale = 0f;
+            onPaused?.Invoke();
+            
+        }
+
+        public void ContinueGame()
+        {
+            Time.timeScale = 1f;
+            onContinue?.Invoke();
+        }
+
+        IEnumerator spawnWave()
+        {
+            yield return new WaitForSeconds(2f);
             EnemySpawner.instance.executeSpawnWave();
+
         }
         void GetSingleton()
         {

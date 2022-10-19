@@ -9,15 +9,24 @@ using UnityEngine.UI;
 public class PanelsController : MonoBehaviour
 {
     public List<PanelsMain> panels = new List<PanelsMain>();
+    public PanelsMain pausePanel;
 
     private void Start()
     {
         GameManager.instance.OnGameStateChanged += OnGameStateChanged;
+        GameManager.instance.onPaused += openPause;
+        GameManager.instance.onContinue += closePause;
+        
+        pausePanel.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
         GameManager.instance.OnGameStateChanged -= OnGameStateChanged;
+        GameManager.instance.onPaused -= openPause;
+        GameManager.instance.onContinue -= closePause;
+
+
     }
 
     private void OnGameStateChanged(GameState state)
@@ -49,5 +58,15 @@ public class PanelsController : MonoBehaviour
             if(a ==  openpanel) a.Open();
             else a.Close();
         }
+    }
+
+    private void openPause()
+    {
+        pausePanel.Open();
+    }
+
+    private void closePause()
+    {
+        pausePanel.Close();
     }
 }
